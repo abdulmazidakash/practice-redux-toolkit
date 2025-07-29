@@ -31,14 +31,14 @@ This project is built to explore **Redux Toolkit** with a real-world approach. I
 
 ## ✨ Features
 
-✅ State management with **Redux Toolkit**
-✅ Mock backend with **JSON Server**
-✅ Axios for API calls
-✅ React Router for navigation
-✅ Nanoid for unique IDs
-✅ SweetAlert2 for alerts and notifications
-✅ Tailwind CSS + DaisyUI for responsive UI
-✅ Modular folder structure for scalability
+* ✅ State management with **Redux Toolkit**
+* ✅ Mock backend with **JSON Server**
+* ✅ Axios for API calls
+* ✅ React Router for navigation
+* ✅ Nanoid for unique IDs
+* ✅ SweetAlert2 for alerts and notifications
+* ✅ Tailwind CSS + DaisyUI for responsive UI
+* ✅ Modular folder structure for scalability
 
 ---
 
@@ -192,3 +192,4 @@ This project is licensed under the **MIT License**.
 
 ---
 
+![Redux Toolkit Screenshot](./public/practice-reduc-toolkit.png)
