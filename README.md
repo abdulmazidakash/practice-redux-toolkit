@@ -91,7 +91,7 @@ practice-redux-toolkit/
 1️⃣ Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/practice-redux-toolkit.git
+git clone https://github.com/abdulmazidakash/practice-redux-toolkit.git
 cd practice-redux-toolkit
 ```
 
@@ -182,7 +182,7 @@ Example API data (`db.json`):
 
 ## 👨‍💻 Contributors
 
-* **Your Name** — *Project Creator*
+* **Abdul Mazid Akash** — *Project Creator*
 
 ---
 
