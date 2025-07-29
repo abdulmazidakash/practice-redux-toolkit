@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchProducts, updateProduct } from '../productsSlice';
+import { deleteProduct, fetchProducts, updateProduct } from '../productsSlice';
 import ProductCard from './ProductCard';
 import EditModal from './EditModal';
 import Swal from 'sweetalert2';
@@ -14,6 +14,30 @@ export default function ProductsList() {
 		dispatch(fetchProducts())
 	},[dispatch]);
 	console.log(products);
+
+	const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(deleteProduct(id)).then(() => {
+          Swal.fire({
+            icon: "success",
+            title: "Deleted!",
+            text: "Product has been deleted successfully.",
+            timer: 1500,
+            showConfirmButton: false,
+          });
+        });
+      }
+    });
+  };
 
 	const handleUpdate = () =>{
 		dispatch(updateProduct({id: selectedProduct.id, product: selectedProduct}))
@@ -36,6 +60,7 @@ export default function ProductsList() {
 			<section className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2'>
 				{products.map((product)=>
 			{	return	<ProductCard 
+						handleDelete={handleDelete}
 						onEdit={() => {
 							setSelectedProduct(product);
 							document.getElementById('edit_modal').showModal();

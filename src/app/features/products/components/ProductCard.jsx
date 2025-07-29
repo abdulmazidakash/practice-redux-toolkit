@@ -1,33 +1,6 @@
-import { useDispatch } from "react-redux";
-import { deleteProduct } from "../productsSlice";
-import Swal from "sweetalert2";
 
-
-export default function ProductCard({product, onEdit}) {
-	const dispatch = useDispatch();
-	const handleDelete = () => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#d33",
-      cancelButtonColor: "#3085d6",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        dispatch(deleteProduct(product.id)).then(() => {
-          Swal.fire({
-            icon: "success",
-            title: "Deleted!",
-            text: "Product has been deleted successfully.",
-            timer: 1500,
-            showConfirmButton: false,
-          });
-        });
-      }
-    });
-  };
+export default function ProductCard({product, onEdit, handleDelete}) {
+	
 
 
   return (
@@ -40,7 +13,7 @@ export default function ProductCard({product, onEdit}) {
 		{/* button alignments  */}
 		<div className="flex gap-2 my-2">
 			<button onClick={onEdit} className="btn btn-sm btn-success my-2 font-semibold text-white mr-4">Edit</button>
-			<button onClick={handleDelete} className="btn btn-sm btn-error my-2 font-semibold text-white">Delete</button>
+			<button onClick={()=>handleDelete(product.id)} className="btn btn-sm btn-error my-2 font-semibold text-white">Delete</button>
 		</div>
 	</div>
   )
