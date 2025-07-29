@@ -192,4 +192,4 @@ This project is licensed under the **MIT License**.
 
 ---
 
-![Redux Toolkit Screenshot](./public/practice-reduc-toolkit.png)
+![Redux Toolkit Screenshot](./public/practice-redux-toolkit.png)
