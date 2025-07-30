@@ -1,5 +1,5 @@
 
-export default function EditModal({ selectedProduct, setSelectedProduct, onUpdate }) {
+export default function EditModal({ selectedProduct, setSelectedProduct, handleUpdate }) {
 	
 	const handleChange = e =>{
 		setSelectedProduct({
@@ -8,32 +8,27 @@ export default function EditModal({ selectedProduct, setSelectedProduct, onUpdat
 		})
 	}
 
-	const handleSubmit = e =>{
-		e.preventDefault();
-		onUpdate()
-	}
-
   return (
     <dialog id="edit_modal" className="modal">
       <div className="modal-box">
         <h3 className="font-bold text-lg text-center my-2">Edit Product</h3>
         {selectedProduct && (
           <form
-            onSubmit={handleSubmit}
+            onSubmit={handleUpdate}
             className="flex flex-col gap-2"
           >
             <input
               type="text"
               className="input input-bordered w-full"
               placeholder="Title"
-			  name="title"
+			        name="title"
               value={selectedProduct.title}
               onChange={handleChange}
             />
             <textarea
               className="textarea textarea-bordered w-full"
               placeholder="Description"
-			  name="description"
+			        name="description"
               value={selectedProduct.description}
               onChange={handleChange}
             />
@@ -41,7 +36,7 @@ export default function EditModal({ selectedProduct, setSelectedProduct, onUpdat
               type="number"
               className="input input-bordered w-full"
               placeholder="Price"
-			  name="price"
+			        name="price"
               value={selectedProduct.price}
               onChange={handleChange}
             />
@@ -49,7 +44,7 @@ export default function EditModal({ selectedProduct, setSelectedProduct, onUpdat
               type="text"
               className="input input-bordered w-full"
               placeholder="Category"
-			  name="category"
+			        name="category"
               value={selectedProduct.category}
               onChange={handleChange}
             />

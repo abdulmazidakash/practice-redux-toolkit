@@ -39,7 +39,8 @@ export default function ProductsList() {
     });
   };
 
-	const handleUpdate = () =>{
+	const handleUpdate = (e) =>{
+		e.preventDefault();
 		dispatch(updateProduct({id: selectedProduct.id, product: selectedProduct}))
 		.then(() => {
         Swal.fire({
@@ -57,25 +58,27 @@ export default function ProductsList() {
 		{isLoading && <h2>Loading...</h2>}
 		{error && <p>Error: {error.message}</p>}
 		{!isLoading && !error && products && products.length > 0 && (
-			<section className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2'>
-				{products.map((product)=>
-			{	return	<ProductCard 
-						handleDelete={handleDelete}
-						onEdit={() => {
-							setSelectedProduct(product);
-							document.getElementById('edit_modal').showModal();
-						}}
-						key={product.id} 
-						product={product} />}
-				)}
-			</section>
+		<section className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2'>
+		{/* product card  */}
+		{products.map((product)=>
+
+		{return	<ProductCard 
+					handleDelete={handleDelete}
+					onEdit={() => {
+						setSelectedProduct(product);
+						document.getElementById('edit_modal').showModal();
+					}}
+					key={product.id} 
+					product={product} />}
+			)}
+		</section>
 		)}
 
 		{/* edit modal  */}
 		<EditModal 
 		selectedProduct={selectedProduct}
 		setSelectedProduct={setSelectedProduct}
-		onUpdate={handleUpdate}
+		handleUpdate={handleUpdate}
 		 />
 	</div>
   )
